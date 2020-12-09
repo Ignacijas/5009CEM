@@ -23,6 +23,17 @@
 		<main>
 		<p>This is a secure page. Users need to have a valid account and be logged in to see it.</p>
 		<p><a href="/">Home page</a></p>
+     <table>
+       <tr><th>Photo</th><th>Name</th><th>CV</th><th>Last Edited</th></tr>  
+       {{#each records}}
+        <tr>
+         <td><img src="images/{{photo}}"/></td>
+         <td>{{this.name}}</td>
+         <td>{{this.summary}}</td>
+         <td>{{this.lastcontact}}</td>
+        </tr>
+      {{/each}}
+     </table>
 		</main>
 	</body>
 </html>
