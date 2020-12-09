@@ -9,7 +9,7 @@ import router from './routes/routes.js'
 const app = new Koa()
 app.keys = ['darkSecret']
 
-const defaultPort = 8060
+const defaultPort = 8077
 const port = process.env.PORT || defaultPort
 
 async function getHandlebarData(ctx, next) {
