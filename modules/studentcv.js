@@ -27,5 +27,22 @@ class Studentcv{
     }
     return studentcv
   }
+
+  
+  async getByID(id) {
+    try{
+      const sql = `SELECT * FROM studentcv, users\
+          WHERE studentcv.id = ${id};`
+      console.log(sql)
+      const studentcv = await this.db.get(sql)
+      if(studentcv.photo === null) studentcv.photo = 'placeholder.jpg'
+      const dateTime = new Date(studentcv.lastcontact * 1000)
+      const date = `${dateTime.getDate()}/${dateTime.getMonth()+1}/${dateTime.getFullYear()}`
+      studentcv.lastcontact = date
+      return studentcv
+    } catch(err) {
+      console.log(err)
+      throw err
+    }}
 }
 export default Studentcv
