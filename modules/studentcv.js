@@ -14,13 +14,14 @@ class Studentcv{
       return this
     })()
   }
+ 
 
-
+  
   async all() {
     const sql = 'SELECT * FROM studentcv'
     const studentcv = await this.db.all(sql)
     for(const index in studentcv) {
-      if(studentcv[index].photo === null) studentcv[index].photo = 'placeholder.jpg'
+      if(studentcv[index].photo === null) studentcv[index].photo = 'avatar.jpg'
       const dateTime = new Date(studentcv[index].lastcontact)
       const date = `${dateTime.getDate()}/${dateTime.getMonth()+1}/${dateTime.getFullYear()}`
       studentcv[index].lastcontact = date
@@ -28,7 +29,6 @@ class Studentcv{
     return studentcv
   }
 
-  
   async getByID(id) {
     try{
       const sql = `SELECT * FROM studentcv, users\

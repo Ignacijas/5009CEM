@@ -8,7 +8,7 @@
 		<meta name="description" content="form to add new books">
 		<meta name="author" content="Mark Tyers">
 		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
-		<script type="module" src="main.js"></script>
+		<script type="module" src="{{host}}/main.js"></script>
 	</head>
 	<body>
 		<header>
@@ -27,7 +27,7 @@
        <tr><th>Photo</th><th>Name</th><th>CV</th><th>Last Edited</th><th>Actions</th></tr>  
        {{#each records}}
         <tr>
-         <td><img src="images/{{photo}}"/></td>
+         <td><img src="../avatars/{{this.photo}}"/></td>
          <td>{{this.name}}</td>
          <td>{{this.summary}}</td>
          <td>{{this.lastcontact}}</td>

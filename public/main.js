@@ -2,14 +2,15 @@
 /* main.js */
 
 
-window.addEventListener('DOMContentLoaded', event => {
+window.addEventListener('DOMContentLoaded', () => {
 	console.log('DOMContentLoaded')
-  const delay = 2000
-  document.querySelector('aside').hidden = false
-  window.setTimeout( () => {
+  if(document.querySelector('aside')){
+    const delay = 2000
+    document.querySelector('aside').hidden = false
+    window.setTimeout( () => {
     document.querySelector('aside').hidden = true
-  }, delay)
-}
+    }, delay)
+  }
   
   if(document.querySelector('button.back')) { 
     document.querySelectorAll('button.back').forEach( element => {
@@ -20,5 +21,5 @@ window.addEventListener('DOMContentLoaded', event => {
       }) 
     })
   }
-  
+
 })

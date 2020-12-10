@@ -51,6 +51,11 @@ h3 {
 	margin-left: 0.6vw;
 }
 
+img {
+  height: 150px;
+  width: 150px;
+}
+
 header > a {
 	margin-top: 3vw;
 	margin-right: 3vw;
