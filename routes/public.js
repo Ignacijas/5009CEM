@@ -1,13 +1,12 @@
-
 import Router from 'koa-router'
 import bodyParser from 'koa-body'
-
 const router = new Router()
-router.use(bodyParser({multipart: true}))
-
+router.use(bodyParser({
+	multipart: true
+}))
 import Accounts from '../modules/accounts.js'
 const dbName = 'website.db'
-
+import Studentcv from '../modules/studentcv.js'
 /**
  * The secure home page.
  *
@@ -15,14 +14,17 @@ const dbName = 'website.db'
  * @route {GET} /
  */
 router.get('/', async ctx => {
+	const studentcv = await new Studentcv(dbName)
 	try {
+		const records = await studentcv.all()
+		console.log(records)
+		ctx.hbs.records = records
 		await ctx.render('index', ctx.hbs)
-	} catch(err) {
+	}catch(err) {
+		ctx.hbs.error = err.message
 		await ctx.render('error', ctx.hbs)
 	}
 })
-
-
 /**
  * The user registration page.
  *
@@ -30,7 +32,6 @@ router.get('/', async ctx => {
  * @route {GET} /register
  */
 router.get('/register', async ctx => await ctx.render('register'))
-
 /**
  * The script to process new user registrations.
  *
@@ -63,8 +64,10 @@ router.post('/login', async ctx => {
 	ctx.hbs.body = ctx.request.body
 	try {
 		const body = ctx.request.body
-		await account.login(body.user, body.pass)
+		const id = await account.login(body.user, body.pass)
 		ctx.session.authorised = true
+		ctx.session.user = body.user
+		ctx.session.userid = id
 		const referrer = body.referrer || '/secure'
 		return ctx.redirect(`${referrer}?msg=you are now logged in...`)
 	} catch(err) {
@@ -77,7 +80,9 @@ router.post('/login', async ctx => {
 
 router.get('/logout', async ctx => {
 	ctx.session.authorised = null
-	ctx.redirect('/?msg=you are now logged out')
+	delete ctx.session.user
+	delete ctx.session.userid
+	ctx.redirect('/?msg = you are now logged out ')
 })
 
 export default router

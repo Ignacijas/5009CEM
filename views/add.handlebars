@@ -1,0 +1,69 @@
+
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Add your CV</title>
+		<meta name="description" content="form to add new books">
+		<meta name="author" content="Mark Tyers">
+		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+		<script type="module" src="{{host}}/main.js"></script>
+	</head>
+	<body>
+		<header>
+		<h1>Add your CV</h1>
+		<a href="/logout">Log out</a>
+		</header>
+		{{#if msg}}
+ 			<aside>
+				<p class="msg">{{msg}}</p>
+			</aside>
+		{{/if}}
+		<main>
+     <form method="post" action="/secure/add" enctype="multipart/form-data">
+    
+
+      
+      <p>
+        <label for="name">Name</label><br />
+        <input type="text" name="title" placeholder="Students name" value="" data-msg="Input your name" autofocus required/>
+      </p>
+      
+      <p>
+        <label for="summary">Summary</label><br />
+        <textarea name="summary" placeholder="Short summary about you"></textarea>
+      </p>
+     
+      <p>
+        <label for="skills">Your skills</label><br />
+        <textarea name="skills" placeholder="Your skills"></textarea>
+      </p>
+      
+     
+     
+     
+      <p>
+        <label for="qualifications">Your qualifications</label><br />
+        <textarea name="qualifications" placeholder="Your qualifications"></textarea>
+      </p>
+      
+      <p>
+        <label for="photo">Profile picture</label><br />
+        <input type="file" name="photo" accept="image/*" />
+      </p>
+      
+      <p><input type="submit" value="Add CV"></p>
+      
+  
+     </form>
+      
+
+    
+    
+    </main>
+    <aside class="fixed top left">
+        <button class="back">Back</button>
+      </aside>
+	</body>
+</html>

@@ -4,7 +4,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>User page - CVs </title>
+		<title>User page - CVs</title>
 		<meta name="description" content="form to add new books">
 		<meta name="author" content="Mark Tyers">
 		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<header>
-		<h1>Details - {{id}}</h1>
+		<h1>Details - {{account}}</h1>
 		<a href="/logout">Log out</a>
 		</header>
 		{{#if msg}}
@@ -21,7 +21,18 @@
 			</aside>
 		{{/if}}
 		<main>
-      <p>Display record {{id}}</p>
+      <p>{{cv.title}} - {{account}}</p>
+      
+    
+      
+      <figure>
+        <img class="detail" src="{{host}}/avatars/{{cv.photo}}"/>
+        <figcaption>{{cv.title}}</figcaption>
+        <figcaption>{{cv.summary}}</figcaption>
+        <figcaption>{{cv.qualifications}}</figcaption>
+        <figcaption>{{cv.skills}}</figcaption>
+        <figcaption>Last edited:{{cv.lastcontact}}</figcaption>
+      </figure>
     </main>
       <aside class="fixed top left">
         <button class="back">Back</button>

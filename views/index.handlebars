@@ -29,6 +29,18 @@
 		{{#if authorised}}
 			<p><a href="/secure">secure page</a></p>
 		{{/if}}
+     <table>
+       <tr><th>Photo</th><th>Name</th><th>Short summary</th><th>Last Edited</th><th>Actions</th></tr>  
+       {{#each records}}
+        <tr>
+         <td><img src="../avatars/{{photo}}"/></td>
+         <td>{{this.title}}</td>
+         <td>{{this.summary}}</td>
+         <td>{{this.lastcontact}}</td>
+          <td><a href="/secure/details/{{this.account}}">Details</a></td>
+        </tr>
+      {{/each}}
+     </table>
 	</main>
 	</body>
 </html>

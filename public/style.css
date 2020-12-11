@@ -56,6 +56,9 @@ img {
   width: 150px;
 }
 
+
+
+
 header > a {
 	margin-top: 3vw;
 	margin-right: 3vw;
@@ -151,9 +154,7 @@ legend {
 	padding: 0.6vw;
 }
 
-input[type="file"] {
-	display: none;
-}
+
 
 input[type="submit"], header > a, .custom-file-upload {
   background-color: grey;
@@ -185,6 +186,19 @@ textarea {
 	height: 10vw;
 	resize: none;
 }
+
+input:required, textarea:required {
+  border-width: 2px;
+}
+
+input:invalid, textarea:invalid {
+  border-color: red;
+}
+
+input:valid, textarea:valid {
+  border-color: darkgreen;
+}
+
 
 select {
 	width: 26.3vw;
@@ -241,4 +255,71 @@ td, th {
 
 td:last-child, th:last-child {
 	text-align: right;
+}
+
+
+
+/* ===== ADD BUTTON ===== */
+
+button#add {
+    display: block;
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    z-index: 5;
+    background-color: grey;
+    color: white;
+    font-size: 5em;
+    width: 1.2em;
+    block-size: border-box;
+    border-radius: 2em;
+    border: none;
+    cursor: pointer;
+}
+
+.add {
+    display: block;
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    z-index: 5;
+    padding: 1em;
+}
+
+button#add:hover {
+    background-color: white;
+    color: grey;
+}
+
+
+
+
+button#back {
+    display: block;
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    z-index: 5;
+    background-color: grey;
+    color: white;
+    font-size: 5em;
+    width: 1.2em;
+    block-size: border-box;
+    border-radius: 2em;
+    border: none;
+    cursor: pointer;
+}
+
+.back {
+    display: block;
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    z-index: 5;
+    padding: 1em;
+}
+
+button#back:hover {
+    background-color: white;
+    color: grey;
 }
